@@ -10,7 +10,7 @@
 * [Setup Instructions](#how-to-run-the-project)
 * [Execution](#execution)
 * [Example Usage](#example-usage)
-* [Members and Contributors](#authors)
+* [Members and Contributors](#members-and-contributors)
 
 
 ---

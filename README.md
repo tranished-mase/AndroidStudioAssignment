@@ -3,14 +3,14 @@
 ## 📍 Quick Navigation
 
 * [Project Scope](#project-scope)
-* [Features](#features-)
+* [Features](#features)
 * [Technologies Used](#technologies-used)
 * [Project Structure](#project-structure)
-* [OOP Concepts Implemented](#oop-concepts-implemented-)
-* [Setup Instructions](#how-to-run-the-project-️)
-* [Execution](#execution-)
-* [Example Usage](#example-usage-)
-* [Members and Contributors](#authors-)
+* [OOP Concepts Implemented](#oop-concepts-implemented)
+* [Setup Instructions](#how-to-run-the-project)
+* [Execution](#execution)
+* [Example Usage](#example-usage)
+* [Members and Contributors](#authors)
 
 
 ---

@@ -144,6 +144,10 @@ Methods such as `getPrice()` and `displayDetails()` are overridden in the `Textb
 * Android Studio(The IDE we used)
 * JDK 17 or higher
 * Android SDK
+# Environment Configuration: Before running the application, the development environment must be configured correctly. Ensure that JDK 17 or a higher version is installed on your machine and that the JAVA_HOME environment variable points to the JDK installation directory. The JDK bin folder should also be added to the system PATH so that Gradle and Android Studio can access Java commands successfully.
+
+# Android Studio should recognize the installed Android SDK automatically once the SDK has been installed through the SDK Manager. After opening the project in Android Studio, allow Gradle to sync completely before attempting to build or run the application.
+
 
 ### Steps
 
@@ -157,7 +161,7 @@ Methods such as `getPrice()` and `displayDetails()` are overridden in the `Textb
 
 ---
 
-## Screenshots 📱
+## Screenshots 
 
 You can add screenshots of:
 

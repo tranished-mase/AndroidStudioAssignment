@@ -198,12 +198,13 @@ will return matching textbooks.
 ---
 
 ## Members and Contributors
-Cebisile Mtyu (Leader)
-Siyabonga Brains Nkosi
-Anda Gxoyiya
-Alizwa Mbane
-Lonwabo Mbhele
-Lubabalo Ndyawe
-Wanga Talaba
+
+* Cebisile Mtyu (Leader)
+* Siyabonga Brains Nkosi 
+* Anda Gxoyiya
+* Alizwa Mbane
+* Lonwabo Mbhele
+* Lubabalo Ndyawe
+* Wanga Talaba
 
 ---

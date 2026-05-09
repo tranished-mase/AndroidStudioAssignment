@@ -4,8 +4,8 @@
 
 * [Project Scope](#project-scope)
 * [Features](#features-)
-* [Technologies Used](#technologies-used-)
-* [Project Structure](#project-structure-)
+* [Technologies Used](#technologies-used)
+* [Project Structure](#project-structure)
 * [OOP Concepts Implemented](#oop-concepts-implemented-)
 * [Setup Instructions](#how-to-run-the-project-️)
 * [Execution](#execution-)

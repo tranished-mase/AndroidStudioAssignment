@@ -17,7 +17,7 @@
 
 # CSC313 – Android Marketplace Assignment
 
-This project demonstrates the implementation of Java Object-Oriented Programming concepts including Classes, Methods, Objects, Interfaces, Abstract Classes, Exception Handling, ArrayLists, Searching, Validation, and Android UI development.
+## This project demonstrates the implementation of Java Object-Oriented Programming concepts including Classes, Methods, Objects, Interfaces, Abstract Classes, Exception Handling, ArrayLists, Searching, Validation, and Android UI development.
 
 ## Project Scope
 
@@ -137,7 +137,7 @@ Methods such as `getPrice()` and `displayDetails()` are overridden in the `Textb
 
 ---
 
-## How to Run the Project ▶️
+## How to Run the Project 
 
 ### Requirements
 
@@ -175,7 +175,7 @@ screenshots/search_screen.png
 
 ---
 
-## Example Usage 🧪
+## Example Usage 
 
 ### Adding a Textbook
 

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         textInventory = findViewById(R.id.textInventory);
         SearchView searchView = findViewById(R.id.searchView);
 
-        // --- Search Logic [Requirement 4] ---
+        //  Search Logic 
         if (searchView != null) {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override

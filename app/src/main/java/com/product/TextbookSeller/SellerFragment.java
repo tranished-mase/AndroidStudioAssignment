@@ -83,7 +83,7 @@ public class SellerFragment extends Fragment {
         });
     }
 
-    /** Call this to refresh the seller's own listing cards. */
+    /**Used to refresh the seller's own listing cards. */
     public void refreshListings(List<Textbook> books) {
         if (listingsContainer == null) return;
         listingsContainer.removeAllViews();

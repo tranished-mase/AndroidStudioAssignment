@@ -37,7 +37,7 @@ public class TextbookManager {
         return results;
     }
 
-    // Requirement 1: Browse all available textbooks
+    // 1: Browse all available textbooks
     public List<Textbook> getAllBooks() {
         return inventory;
     }

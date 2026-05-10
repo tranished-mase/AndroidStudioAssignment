@@ -12,16 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import java.util.List;
 
 public class SellerFragment extends Fragment {
 
-    private TextbookManager manager;
+    private TextbookViewModel viewModel;
     private LinearLayout listingsContainer;
 
     public static SellerFragment newInstance(TextbookManager manager) {
-        SellerFragment f = new SellerFragment();
-        f.manager = manager;
-        return f;
+        return new SellerFragment();
     }
 
     @Nullable @Override
@@ -35,6 +35,8 @@ public class SellerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel = new ViewModelProvider(requireActivity()).get(TextbookViewModel.class);
+
         EditText editTitle   = view.findViewById(R.id.editTitle);
         EditText editSeller  = view.findViewById(R.id.editSeller);
         EditText editPrice   = view.findViewById(R.id.editPrice);
@@ -44,7 +46,7 @@ public class SellerFragment extends Fragment {
         Button   btnSubmit   = view.findViewById(R.id.btnSubmit);
         listingsContainer    = view.findViewById(R.id.listingsContainer);
 
-        refreshListings();
+        viewModel.getInventory().observe(getViewLifecycleOwner(), this::refreshListings);
 
         btnSubmit.setOnClickListener(v -> {
             String title  = editTitle.getText().toString().trim();
@@ -69,27 +71,24 @@ public class SellerFragment extends Fragment {
             }
 
             Textbook book = new Textbook(title, seller, 1, price, accNum, bank, type);
-            String result = manager.addTextbook(book);
-            Toast.makeText(getContext(), result, Toast.LENGTH_LONG).show();
+            viewModel.addTextbook(book);
+            Toast.makeText(getContext(), "Success: Textbook listed for sale!", Toast.LENGTH_LONG).show();
 
-            if (result.contains("Success")) {
-                editTitle.setText("");
-                editSeller.setText("");
-                editPrice.setText("");
-                editBank.setText("");
-                editAccNum.setText("");
-                editAccType.setText("");
-                refreshListings();
-            }
+            editTitle.setText("");
+            editSeller.setText("");
+            editPrice.setText("");
+            editBank.setText("");
+            editAccNum.setText("");
+            editAccType.setText("");
         });
     }
 
     /** Call this to refresh the seller's own listing cards. */
-    public void refreshListings() {
+    public void refreshListings(List<Textbook> books) {
         if (listingsContainer == null) return;
         listingsContainer.removeAllViews();
 
-        if (manager.getAllBooks().isEmpty()) {
+        if (books.isEmpty()) {
             TextView empty = new TextView(getContext());
             empty.setText("No listings yet. Add your first book above.");
             empty.setTextColor(getResources().getColor(R.color.text_secondary, null));
@@ -100,7 +99,7 @@ public class SellerFragment extends Fragment {
         }
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        for (Textbook b : manager.getAllBooks()) {
+        for (Textbook b : books) {
             View card = inflater.inflate(R.layout.item_book, listingsContainer, false);
 
             ((TextView) card.findViewById(R.id.tvBookTitle)).setText(b.getTitle());

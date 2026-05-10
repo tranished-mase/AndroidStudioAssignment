@@ -12,17 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import java.util.List;
 
 public class BuyerFragment extends Fragment {
 
-    private TextbookManager manager;
+    private TextbookViewModel viewModel;
     private LinearLayout buyerListContainer;
 
     public static BuyerFragment newInstance(TextbookManager manager) {
-        BuyerFragment f = new BuyerFragment();
-        f.manager = manager;
-        return f;
+        return new BuyerFragment();
     }
 
     @Nullable @Override
@@ -36,32 +35,26 @@ public class BuyerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel = new ViewModelProvider(requireActivity()).get(TextbookViewModel.class);
+
         SearchView searchView   = view.findViewById(R.id.searchView);
         buyerListContainer      = view.findViewById(R.id.buyerListContainer);
 
-        // Show all books initially
-        renderBooks(manager.getAllBooks());
+        // Observe search results (this updates when searching OR when inventory changes)
+        viewModel.getSearchResults().observe(getViewLifecycleOwner(), this::renderBooks);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                renderBooks(manager.searchBooks(query));
+                viewModel.searchBooks(query);
                 return true;
             }
             @Override
             public boolean onQueryTextChange(String text) {
-                if (text.isEmpty()) renderBooks(manager.getAllBooks());
-                else renderBooks(manager.searchBooks(text));
+                viewModel.searchBooks(text);
                 return true;
             }
         });
-    }
-
-    /** Re-renders whenever the tab is shown so new seller listings appear. */
-    @Override
-    public void onResume() {
-        super.onResume();
-        renderBooks(manager.getAllBooks());
     }
 
     private void renderBooks(List<Textbook> books) {
@@ -97,9 +90,7 @@ public class BuyerFragment extends Fragment {
                 soldBadge.setVisibility(View.GONE);
 
                 btnBuy.setOnClickListener(v -> {
-                    b.markSold();
-                    btnBuy.setVisibility(View.GONE);
-                    soldBadge.setVisibility(View.VISIBLE);
+                    viewModel.markAsSold(b);
                     Toast.makeText(getContext(),
                             "✅ Purchased! Pay " + b.getSellerName()
                             + " at " + b.getBankName()

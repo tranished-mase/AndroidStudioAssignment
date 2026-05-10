@@ -7,20 +7,17 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class TextbookPagerAdapter extends FragmentStateAdapter {
 
-    private final TextbookManager manager;
-
     public TextbookPagerAdapter(@NonNull FragmentActivity fa, TextbookManager manager) {
         super(fa);
-        this.manager = manager;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
-            case 0: return HomeFragment.newInstance(manager);
-            case 1: return SellerFragment.newInstance(manager);
-            default: return BuyerFragment.newInstance(manager);
+            case 0: return HomeFragment.newInstance(null);
+            case 1: return SellerFragment.newInstance(null);
+            default: return BuyerFragment.newInstance(null);
         }
     }
 

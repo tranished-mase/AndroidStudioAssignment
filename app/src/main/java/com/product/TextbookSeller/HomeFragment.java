@@ -10,14 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.lifecycle.ViewModelProvider;
+
 public class HomeFragment extends Fragment {
 
-    private TextbookManager manager;
+    private TextbookViewModel viewModel;
 
     public static HomeFragment newInstance(TextbookManager manager) {
-        HomeFragment f = new HomeFragment();
-        f.manager = manager;
-        return f;
+        return new HomeFragment();
     }
 
     @Nullable @Override
@@ -31,12 +31,17 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel = new ViewModelProvider(requireActivity()).get(TextbookViewModel.class);
+
         TextView tvTotalBooks = view.findViewById(R.id.tvTotalBooks);
         TextView tvTotalSold  = view.findViewById(R.id.tvTotalSold);
         LinearLayout ctaSell  = view.findViewById(R.id.ctaSell);
         LinearLayout ctaBuy   = view.findViewById(R.id.ctaBuy);
 
-        updateStats(tvTotalBooks, tvTotalSold);
+        viewModel.getInventory().observe(getViewLifecycleOwner(), books -> {
+            tvTotalBooks.setText(String.valueOf(viewModel.getTotalBooks()));
+            tvTotalSold.setText(String.valueOf(viewModel.getSoldCount()));
+        });
 
         // Navigate to Seller tab
         ctaSell.setOnClickListener(v -> {
@@ -53,21 +58,5 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Refresh stats every time home is shown
-        View v = getView();
-        if (v != null) {
-            updateStats(v.findViewById(R.id.tvTotalBooks),
-                        v.findViewById(R.id.tvTotalSold));
-        }
-    }
-
-    private void updateStats(TextView tvBooks, TextView tvSold) {
-        int total = manager.getAllBooks().size();
-        int sold  = manager.getSoldCount();
-        tvBooks.setText(String.valueOf(total));
-        tvSold.setText(String.valueOf(sold));
-    }
+    // Removed onResume and updateStats as they are now handled by LiveData observation
 }

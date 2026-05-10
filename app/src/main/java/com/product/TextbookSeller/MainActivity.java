@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.lifecycle.ViewModelProvider;
+
 public class MainActivity extends AppCompatActivity {
 
-    // One shared manager — all fragments read and write this same instance
-    private final TextbookManager manager = new TextbookManager();
+    private TextbookViewModel viewModel;
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNav;
 
@@ -17,13 +18,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        viewModel = new ViewModelProvider(this).get(TextbookViewModel.class);
+
         viewPager = findViewById(R.id.viewPager);
         bottomNav = findViewById(R.id.bottomNav);
 
-        TextbookPagerAdapter adapter = new TextbookPagerAdapter(this, manager);
+        TextbookPagerAdapter adapter = new TextbookPagerAdapter(this, null);
         viewPager.setAdapter(adapter);
 
-        // Keep all 3 fragments alive so inventory survives navigation
+        // Keep all 3 fragments alive — though ViewModel now handles state
         viewPager.setOffscreenPageLimit(3);
 
         // Disable swiping — use bottom nav only

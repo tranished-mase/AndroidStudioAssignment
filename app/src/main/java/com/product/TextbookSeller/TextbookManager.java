@@ -10,22 +10,16 @@ public class TextbookManager {
         this.inventory = new ArrayList<>();
     }
 
-    /**
-     * Submit and confirm listing while preventing duplicates.
-     */
+    /** Add a textbook, preventing duplicates (same title + seller). */
     public String addTextbook(Textbook newBook) {
-        // The .contains() method uses the equals() method we just wrote!
         if (inventory.contains(newBook)) {
             return "Error: This textbook is already listed by you.";
         }
-
         inventory.add(newBook);
         return "Success: Textbook listed for sale!";
     }
 
-    /**
-     * Search for textbooks by seller name or book title.
-     */
+    /** Search by title or seller name. */
     public List<Textbook> searchBooks(String query) {
         List<Textbook> results = new ArrayList<>();
         for (Textbook book : inventory) {
@@ -37,8 +31,17 @@ public class TextbookManager {
         return results;
     }
 
-    // 1: Browse all available textbooks
+    /** All books in inventory. */
     public List<Textbook> getAllBooks() {
         return inventory;
+    }
+
+    /** Count of books that have been sold. */
+    public int getSoldCount() {
+        int count = 0;
+        for (Textbook b : inventory) {
+            if (b.isSold()) count++;
+        }
+        return count;
     }
 }

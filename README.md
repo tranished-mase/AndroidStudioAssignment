@@ -101,14 +101,34 @@ Toast notifications are displayed for:
 
 ## Project Structure 
 
-```text
+```text id="x3m8pv"
 app/src/main/java/com/product/TextbookSeller/
 │
-├── MainActivity.java        # Main application logic and UI handling
-├── Product.java             # Abstract parent class
-├── Textbook.java            # Textbook class extending Product
-├── Sellable.java            # Interface for sellable items
-└── TextbookManager.java     # Handles inventory and search logic
+├── activities/
+│   ├── MainActivity.java             # Main entry point of the application
+│   ├── AddTextbookActivity.java      # Handles adding new textbook listings
+│   └── MyListingsActivity.java       # Displays textbooks added by the seller
+│
+├── fragments/
+│   ├── BrowseFragment.java           # Displays available textbooks for browsing
+│   ├── AddTextbookFragment.java      # User interface for adding textbooks
+│   └── MyListingsFragment.java       # Shows the seller's active listings
+│
+├── models/
+│   ├── Product.java                  # Abstract parent class for marketplace products
+│   └── Textbook.java                 # Textbook model extending the Product class
+│
+├── interfaces/
+│   └── Sellable.java                 # Interface defining sellable item behaviour
+│
+├── managers/
+│   └── TextbookManager.java          # Handles textbook inventory and search logic
+│
+├── adapters/
+│   └── TextbookAdapter.java          # Connects textbook data to RecyclerView UI
+│
+└── utils/
+    └── ValidationUtils.java          # Handles input validation and helper methods
 ```
 
 ---

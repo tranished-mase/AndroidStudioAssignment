@@ -26,13 +26,10 @@ public class MainActivity extends AppCompatActivity {
         TextbookPagerAdapter adapter = new TextbookPagerAdapter(this, null);
         viewPager.setAdapter(adapter);
 
-        // Keep all 3 fragments alive — though ViewModel now handles state
         viewPager.setOffscreenPageLimit(3);
 
-        // Disable swiping — use bottom nav only
         viewPager.setUserInputEnabled(false);
 
-        // Bottom nav → ViewPager
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home)   { viewPager.setCurrentItem(0, false); return true; }

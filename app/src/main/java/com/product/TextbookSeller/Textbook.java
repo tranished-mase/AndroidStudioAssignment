@@ -10,7 +10,7 @@ public class Textbook extends Product {
     private String accountNumber;
     private String bankName;
     private String accountType;
-    private boolean sold = false;   // NEW: tracks if a buyer has purchased this
+    private boolean sold = false;   
 
     public Textbook(String title, String sellerName, int numCopies, double price,
                     String accountNumber, String bankName, String accountType) {

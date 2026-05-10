@@ -58,5 +58,4 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    // Removed onResume and updateStats as they are now handled by LiveData observation
 }

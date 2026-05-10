@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="80dp"
+    android:viewportWidth="200"
+    android:viewportHeight="80">
+
+    <!-- Book left page -->
+    <path android:fillColor="#F5A623"
+        android:pathData="M10,15 Q22,12 34,16 L34,60 Q22,56 10,60 Z"/>
+    <!-- Book right page -->
+    <path android:fillColor="#FDE8BC"
+        android:pathData="M36,15 Q48,12 60,16 L60,60 Q48,56 36,60 Z"/>
+    <!-- Spine -->
+    <path android:fillColor="#0D1B2A"
+        android:pathData="M33,14 L37,14 L37,61 L33,61 Z"/>
+    <!-- Page lines left -->
+    <path android:strokeColor="#0D1B2A" android:strokeWidth="1.5"
+        android:pathData="M14,27 Q24,25 31,27" android:fillColor="@android:color/transparent"/>
+    <path android:strokeColor="#0D1B2A" android:strokeWidth="1.5"
+        android:pathData="M14,35 Q24,33 31,35" android:fillColor="@android:color/transparent"/>
+    <path android:strokeColor="#0D1B2A" android:strokeWidth="1.5"
+        android:pathData="M14,43 Q24,41 31,43" android:fillColor="@android:color/transparent"/>
+    <!-- Page lines right -->
+    <path android:strokeColor="#1B2E45" android:strokeWidth="1.5"
+        android:pathData="M39,27 Q49,25 57,27" android:fillColor="@android:color/transparent"/>
+    <path android:strokeColor="#1B2E45" android:strokeWidth="1.5"
+        android:pathData="M39,35 Q49,33 57,35" android:fillColor="@android:color/transparent"/>
+    <!-- Gold star accent -->
+    <path android:fillColor="#F5A623"
+        android:pathData="M35,65 L36.5,70 L42,70 L37.5,73 L39,78 L35,75 L31,78 L32.5,73 L28,70 L33.5,70 Z"/>
+
+    <!-- App name text rendered as paths not possible in vector, use TextView instead -->
+</vector>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Open book pages -->
+    <path
+        android:fillColor="#F5A623"
+        android:pathData="M54,30 Q42,28 30,33 L30,72 Q42,67 54,70 Z" />
+    <path
+        android:fillColor="#FDE8BC"
+        android:pathData="M54,30 Q66,28 78,33 L78,72 Q66,67 54,70 Z" />
+
+    <!-- Book spine -->
+    <path
+        android:fillColor="#0D1B2A"
+        android:pathData="M52,30 L56,30 L56,70 L52,70 Z" />
+
+    <!-- Lines on left page -->
+    <path
+        android:strokeColor="#0D1B2A"
+        android:strokeWidth="2"
+        android:pathData="M36,42 Q45,40 51,42"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:strokeColor="#0D1B2A"
+        android:strokeWidth="2"
+        android:pathData="M36,50 Q45,48 51,50"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:strokeColor="#0D1B2A"
+        android:strokeWidth="2"
+        android:pathData="M36,58 Q45,56 51,58"
+        android:fillColor="@android:color/transparent"/>
+
+    <!-- Lines on right page -->
+    <path
+        android:strokeColor="#1B2E45"
+        android:strokeWidth="2"
+        android:pathData="M57,42 Q66,40 74,42"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:strokeColor="#1B2E45"
+        android:strokeWidth="2"
+        android:pathData="M57,50 Q66,48 74,50"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:strokeColor="#1B2E45"
+        android:strokeWidth="2"
+        android:pathData="M57,58 Q66,56 74,58"
+        android:fillColor="@android:color/transparent"/>
+
+    <!-- Smile / star accent -->
+    <path
+        android:fillColor="#F5A623"
+        android:pathData="M54,76 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

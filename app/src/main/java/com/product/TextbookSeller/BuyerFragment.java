@@ -40,7 +40,7 @@ public class BuyerFragment extends Fragment {
         SearchView searchView   = view.findViewById(R.id.searchView);
         buyerListContainer      = view.findViewById(R.id.buyerListContainer);
 
-        // Observe search results (this updates when searching OR when inventory changes)
+        // Observe the results (this updates when searching OR when inventory changes)
         viewModel.getSearchResults().observe(getViewLifecycleOwner(), this::renderBooks);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

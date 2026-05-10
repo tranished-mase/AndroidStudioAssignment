@@ -227,8 +227,8 @@ will return matching textbooks.
 * Cebisile Mtyu (Leader)
 * Siyabonga Brains Nkosi 
 * Anda Gxoyiya
-* Alizwa Mbane
 * Lonwabo Mbhele
+* Alizwa Mbane
 * Lubabalo Ndyawe
 * Wanga Talaba
 

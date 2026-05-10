@@ -8,16 +8,16 @@ public class Textbook extends Product {
     private int numCopies;
     private double price;
 
-    // Updated Lingo: We replaced the generic 'bankingInfo' with specific fields
+    
     private String accountNumber;
     private String bankName;
     private String accountType;
 
-    // The Constructor now takes 7 parameters instead of 5
+    
     public Textbook(String title, String sellerName, int numCopies, double price,
                     String accountNumber, String bankName, String accountType) {
 
-        // 'super' still passes the title and sellerName to the Abstract Product class
+        // 'super'  passes the title and sellerName to the Abstract Product class
         super(title, sellerName);
 
         this.numCopies = numCopies;
@@ -34,7 +34,7 @@ public class Textbook extends Product {
 
     @Override
     public void displayDetails() {
-        // Updated to show the more detailed banking info in the console/logs
+        
         System.out.println("Book: " + title + " | Seller: " + sellerName +
                 " | Price: R" + price + " | Bank: " + bankName);
     }

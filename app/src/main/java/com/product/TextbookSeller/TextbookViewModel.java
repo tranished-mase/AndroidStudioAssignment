@@ -31,7 +31,6 @@ public class TextbookViewModel extends ViewModel {
         if (query == null || query.trim().isEmpty()) {
             _searchResults.setValue(manager.getAllBooks());
         } else {
-            // FIX: Trim the query to avoid trailing space issues
             _searchResults.setValue(manager.searchBooks(query.trim()));
         }
     }
@@ -51,7 +50,6 @@ public class TextbookViewModel extends ViewModel {
 
     private void refreshInventory() {
         _inventory.setValue(manager.getAllBooks());
-        // Also update search results to show full list if not searching
         _searchResults.setValue(manager.getAllBooks());
     }
 }
